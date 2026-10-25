@@ -1,0 +1,124 @@
+{
+  "id": "E156",
+  "value": 22000.0,
+  "method": "Independent Python Decimal at 1000 decimal digits; Raoult weighted sum, independently exact decimal values.",
+  "cases": [
+    {
+      "name": "two component pressure",
+      "values": {},
+      "expected": 22000.0
+    },
+    {
+      "name": "pure component",
+      "values": {
+        "components": [
+          {
+            "x": 1,
+            "psat": 12345
+          }
+        ]
+      },
+      "expected": 12345.0
+    },
+    {
+      "name": "nonvolatile solute",
+      "values": {
+        "components": [
+          {
+            "x": 0.5,
+            "psat": 10000
+          },
+          {
+            "x": 0.5,
+            "psat": 0
+          }
+        ]
+      },
+      "expected": 5000.0
+    },
+    {
+      "name": "three components",
+      "values": {
+        "components": [
+          {
+            "x": 0.2,
+            "psat": 1000
+          },
+          {
+            "x": 0.3,
+            "psat": 2000
+          },
+          {
+            "x": 0.5,
+            "psat": 3000
+          }
+        ]
+      },
+      "expected": 2300.0
+    },
+    {
+      "name": "normalized rounding tolerance",
+      "values": {
+        "components": [
+          {
+            "x": 0.333333333333,
+            "psat": 10
+          },
+          {
+            "x": 0.333333333333,
+            "psat": 20
+          },
+          {
+            "x": 0.333333333333,
+            "psat": 30
+          }
+        ]
+      },
+      "expected": 20.0
+    },
+    {
+      "name": "all nonvolatile",
+      "values": {
+        "components": [
+          {
+            "x": 0.2,
+            "psat": 0
+          },
+          {
+            "x": 0.8,
+            "psat": 0
+          }
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "name": "bad composition sum",
+      "values": {
+        "components": [
+          {
+            "x": 0.2,
+            "psat": 1000
+          },
+          {
+            "x": 0.3,
+            "psat": 2000
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "name": "zero composition",
+      "values": {
+        "components": [
+          {
+            "x": 0,
+            "psat": 1000
+          }
+        ]
+      },
+      "throws": true
+    }
+  ]
+}

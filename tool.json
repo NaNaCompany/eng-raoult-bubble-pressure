@@ -1,0 +1,67 @@
+{
+  "id": "E156",
+  "slug": "eng-raoult-bubble-pressure",
+  "title": "이상 혼합물 기포점 압력 계산기",
+  "title_en": "Ideal mixture bubble-point pressure calculator",
+  "category": "화학·화학공학",
+  "category_en": "Chemistry and chemical engineering",
+  "fields": [],
+  "groups": [
+    {
+      "key": "components",
+      "label": "액상 성분과 같은 온도에서의 순물질 증기압",
+      "label_en": "Liquid components and pure-component vapor pressures at the same temperature",
+      "fields": [
+        {
+          "key": "x",
+          "label": "액상 몰분율 xᵢ",
+          "label_en": "Liquid mole fraction xᵢ",
+          "dimension": "fraction",
+          "example": 0.5,
+          "constraint": "unitInterval",
+          "display_unit": "1"
+        },
+        {
+          "key": "psat",
+          "label": "순물질 포화증기압 pᵢ*",
+          "label_en": "Pure-component saturation vapor pressure pᵢ*",
+          "dimension": "pressure",
+          "example": 10000,
+          "constraint": "nonnegative",
+          "display_unit": "kPa"
+        }
+      ],
+      "examples": [
+        {
+          "x": 0.4,
+          "psat": 10000
+        },
+        {
+          "x": 0.6,
+          "psat": 30000
+        }
+      ],
+      "minRows": 1,
+      "maxRows": 100
+    }
+  ],
+  "result_label": "기포점 총압 P",
+  "result_label_en": "Total bubble-point pressure P",
+  "result_dimension": "pressure",
+  "output_unit": "kPa",
+  "formula": "P = Σ(xᵢpᵢ*); Σxᵢ = 1",
+  "purpose": "같은 온도의 성분별 포화증기압과 액상 조성으로 이상 용액에 첫 기포가 생기는 총압을 계산합니다.",
+  "purpose_en": "Calculate the total pressure at the onset of boiling in an ideal liquid solution from liquid composition and pure-component vapor pressures at a common temperature.",
+  "assumptions": "모든 증기압은 같은 온도에서의 값이어야 합니다. 이상 액상·이상 기상·증기와 액체의 평형을 가정하고 활동도계수·퓨가시티 보정·화학반응은 제외합니다. 비휘발성 성분은 증기압 0으로 입력할 수 있습니다. 액상 몰분율 합은 1이어야 하며 1e-10 이내 반올림 오차만 허용 후 정규화합니다. 증기상 조성이 아닌 액상 조성을 입력하세요.",
+  "assumptions_en": "Required: all vapor pressures evaluated at the same temperature, ideal liquid and vapor phases, and vapor-liquid equilibrium. Excluded: activity-coefficient corrections, fugacity corrections and chemical reaction. A nonvolatile component may use zero vapor pressure. Liquid mole fractions must sum to 1; rounding differences up to 1e-10 are accepted and normalized. Enter liquid composition, rather than vapor composition.",
+  "sources": [
+    {
+      "label": "OpenStax Chemistry 2e, Raoult law",
+      "url": "https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"
+    }
+  ],
+  "condition": "같은 온도의 증기압·액상 몰분율·이상 용액 및 이상 기상 가정을 확인했습니다.",
+  "condition_en": "I confirm common-temperature vapor pressures, liquid mole fractions, an ideal solution and ideal vapor.",
+  "site": "https://nanalab.kr/eng-raoult-bubble-pressure/",
+  "repository": "https://github.com/NaNaCompany/eng-raoult-bubble-pressure"
+}
